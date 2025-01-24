@@ -1,12 +1,13 @@
+import os
 from flask import Flask, request, jsonify
 from pytrends.request import TrendReq
 import pandas as pd
-import os
+
+# Set environment variable to avoid pandas warning
+os.environ['PYTHONWARNING'] = 'ignore'
 
 app = Flask(__name__)
 pytrends = TrendReq(hl='en-US', tz=360)
-
-
 @app.route('/google-trends', methods=['POST'])
 def run_get_trends():
     try:
