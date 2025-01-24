@@ -1,6 +1,7 @@
 from flask import Flask, request, jsonify
 from pytrends.request import TrendReq
 import pandas as pd
+import os
 
 app = Flask(__name__)
 pytrends = TrendReq(hl='en-US', tz=360)
